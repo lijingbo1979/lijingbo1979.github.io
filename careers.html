@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招贤纳仕 - 广州金隆文化传媒服务有限公司</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a5fb4;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a5fb4;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a5fb4;
+        }
+        
+        nav ul li a.active {
+            color: #1a5fb4;
+            border-bottom: 2px solid #1a5fb4;
+        }
+        
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 招聘横幅区域 */
+        .careers-banner {
+            height: 400px;
+            background: linear-gradient(rgba(26, 95, 180, 0.8), rgba(26, 95, 180, 0.6)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .careers-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .careers-banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .careers-banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #1a5fb4;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1a5fb4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 招聘内容区域 */
+        .careers-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #1a5fb4;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 职位筛选 */
+        .jobs-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #1a5fb4;
+            color: white;
+            border-color: #1a5fb4;
+        }
+        
+        /* 职位网格布局 */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+        
+        .job-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            padding: 30px;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-department {
+            display: inline-block;
+            background-color: rgba(26, 95, 180, 0.1);
+            color: #1a5fb4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .job-meta-item i {
+            margin-right: 5px;
+            color: #1a5fb4;
+        }
+        
+        .job-description {
+            margin-bottom: 20px;
+        }
+        
+        .job-description h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .job-description ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        
+        .job-description li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .job-description li:before {
+            content: '•';
+            color: #1a5fb4;
+            position: absolute;
+            left: 0;
+        }
+        
+        .job-requirements {
+            margin-bottom: 25px;
+        }
+        
+        .apply-btn {
+            display: inline-block;
+            background-color: #1a5fb4;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .apply-btn:hover {
+            background-color: #0d4a9c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 公司福利部分 */
+        .benefits-section {
+            background-color: #f1f5f9;
+            padding: 80px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(26, 95, 180, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5fb4;
+            font-size: 30px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .benefit-card p {
+            color: #666;
+        }
+        
+        /* 申请流程部分 */
+        .process-section {
+            padding: 80px 0;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 15px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: #1a5fb4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        
+        .process-step h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .process-step p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1f36;
+            color: #a0aec0;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #1a5fb4;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: #1a5fb4;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 14px;
+        }
+        
+        .beian {
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+        
+        .beian:hover {
+            color: white;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+            
+            .careers-banner h2 {
+                font-size: 32px;
+            }
+            
+            .careers-banner p {
+                font-size: 16px;
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">金</div>
+                <h1>金隆文化传媒</h1>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="news.html">公司动态</a></li>
+                    <li><a href="services.html">主营业务</a></li>
+                    <li><a href="culture.html">企业文化</a></li>
+                    <li><a href="careers.html" class="active">招贤纳仕</a></li>
+                    <li><a href="about.html">关于金隆</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 招聘横幅区域 -->
+    <section class="careers-banner">
+        <div class="careers-banner-content">
+            <h2>招贤纳仕</h2>
+            <p>加入金隆文化传媒，与优秀团队共同成长，实现职业梦想</p>
+            <a href="#jobs-content" class="btn">查看职位</a>
+        </div>
+    </section>
+
+    <!-- 招聘内容 -->
+    <section class="careers-section" id="jobs-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>招聘职位</h2>
+                <p>我们正在寻找有才华、有激情的你，共同创造文化传媒行业的新未来</p>
+            </div>
+            
+            <!-- 职位筛选 -->
+            <div class="jobs-filter">
+                <button class="filter-btn active">全部职位</button>
+                <button class="filter-btn">外卖运营</button>
+                <button class="filter-btn">新媒体运营</button>
+                <button class="filter-btn">管理岗位</button>
+            </div>
+            
+            <!-- 职位列表 -->
+            <div class="jobs-grid">
+                <!-- 外卖运营专员 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">外卖运营专员</h3>
+                            <span class="job-department">外卖运营部</span>
+                        </div>
+                    </div>
+                    
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i>📍</i> 广州
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💼</i> 全职
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💰</i> 5K-8K
+                        </div>
+                        <div class="job-meta-item">
+                            <i>🎓</i> 大专及以上
+                        </div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <h4>岗位职责</h4>
+                        <ul>
+                            <li>负责外卖平台店铺日常运营管理，包括商品上架、价格调整、活动设置等</li>
+                            <li>分析外卖平台数据，制定并执行运营策略，提升店铺曝光和订单量</li>
+                            <li>监控竞品动态，及时调整运营策略，保持竞争优势</li>
+                            <li>与外卖平台业务经理保持良好沟通，争取更多资源支持</li>
+                            <li>处理客户评价和反馈，维护店铺良好口碑</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job-requirements">
+                        <h4>任职要求</h4>
+                        <ul>
+                            <li>大专及以上学历，1年以上外卖平台运营经验</li>
+                            <li>熟悉美团、饿了么等外卖平台运营规则和操作流程</li>
+                            <li>具备良好的数据分析能力和逻辑思维能力</li>
+                            <li>工作积极主动，有责任心，具备良好的沟通协调能力</li>
+                            <li>有餐饮行业运营经验者优先</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="apply-btn">立即申请</button>
+                </div>
+                
+                <!-- 外卖运营主管 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">外卖运营主管</h3>
+                            <span class="job-department">外卖运营部</span>
+                        </div>
+                    </div>
+                    
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i>📍</i> 广州
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💼</i> 全职
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💰</i> 6K-10K
+                        </div>
+                        <div class="job-meta-item">
+                            <i>🎓</i> 本科及以上
+                        </div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <h4>岗位职责</h4>
+                        <ul>
+                            <li>负责外卖运营团队的管理和日常工作的统筹安排</li>
+                            <li>制定外卖运营策略和年度、季度、月度运营计划</li>
+                            <li>带领团队完成外卖平台销售目标和各项KPI指标</li>
+                            <li>分析行业趋势和竞品动态，优化运营策略</li>
+                            <li>与各大外卖平台建立深度合作关系，争取优质资源</li>
+                            <li>培养团队成员，提升团队整体运营能力</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job-requirements">
+                        <h4>任职要求</h4>
+                        <ul>
+                            <li>本科及以上学历，3年以上外卖平台运营经验，1年以上团队管理经验</li>
+                            <li>精通美团、饿了么等外卖平台运营规则和推广策略</li>
+                            <li>具备优秀的团队管理和项目管理能力</li>
+                            <li>数据敏感度高，具备优秀的分析和解决问题的能力</li>
+                            <li>有大型连锁餐饮品牌外卖运营管理经验者优先</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="apply-btn">立即申请</button>
+                </div>
+                
+                <!-- 新媒体运营专员 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">新媒体运营专员</h3>
+                            <span class="job-department">新媒体运营部</span>
+                        </div>
+                    </div>
+                    
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i>📍</i> 广州
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💼</i> 全职
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💰</i> 5K-8K
+                        </div>
+                        <div class="job-meta-item">
+                            <i>🎓</i> 大专及以上
+                        </div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <h4>岗位职责</h4>
+                        <ul>
+                            <li>负责微信公众号、微博、抖音等新媒体平台的日常运营</li>
+                            <li>策划并执行新媒体营销活动，提升品牌影响力和粉丝互动</li>
+                            <li>创作优质、有传播性的内容，包括文案、图片、视频等</li>
+                            <li>分析运营数据，定期输出运营报告，优化运营策略</li>
+                            <li>跟踪新媒体行业发展趋势，探索新的运营模式</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job-requirements">
+                        <h4>任职要求</h4>
+                        <ul>
+                            <li>大专及以上学历，1年以上新媒体运营经验</li>
+                            <li>熟悉主流新媒体平台的特性和运营规则</li>
+                            <li>具备良好的文案写作能力和内容策划能力</li>
+                            <li>对热点敏感，具备良好的创意和策划能力</li>
+                            <li>熟练使用PS、剪映等图片视频编辑软件者优先</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="apply-btn">立即申请</button>
+                </div>
+                
+                <!-- 新媒体运营主管 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">新媒体运营主管</h3>
+                            <span class="job-department">新媒体运营部</span>
+                        </div>
+                    </div>
+                    
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i>📍</i> 广州
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💼</i> 全职
+                        </div>
+                        <div class="job-meta-item">
+                            <i>💰</i> 6K-10K
+                        </div>
+                        <div class="job-meta-item">
+                            <i>🎓</i> 本科及以上
+                        </div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <h4>岗位职责</h4>
+                        <ul>
+                            <li>负责新媒体运营团队的管理和整体运营策略的制定</li>
+                            <li>统筹各新媒体平台的内容规划、活动策划和执行</li>
+                            <li>带领团队完成粉丝增长、用户活跃度等KPI指标</li>
+                            <li>分析用户行为和行业趋势，优化运营策略</li>
+                            <li>建立并维护与KOL、媒体的合作关系</li>
+                            <li>培养团队成员，提升团队整体运营能力</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job-requirements">
+                        <h4>任职要求</h4>
+                        <ul>
+                            <li>本科及以上学历，3年以上新媒体运营经验，1年以上团队管理经验</li>
+                            <li>精通微信、微博、抖音等新媒体平台的运营策略</li>
+                            <li>具备优秀的团队管理和项目管理能力</li>
+                            <li>有成功的新媒体营销案例，熟悉内容营销、社群运营等</li>
+                            <li>具备良好的数据分析能力和商业敏感度</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="apply-btn">立即申请</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司福利部分 -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司福利</h2>
+                <p>我们为员工提供全方位的福利保障，助力员工成长与发展</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>有竞争力的薪酬</h3>
+                    <p>提供行业内有竞争力的薪酬待遇，绩效奖金、年终奖金等多元化激励</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>完善的社保福利</h3>
+                    <p>五险一金齐全，补充商业保险，年度健康体检，全方位保障员工健康</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>培训发展机会</h3>
+                    <p>完善的培训体系，内外部培训机会，职业发展通道清晰</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏖️</div>
+                    <h3>带薪年假</h3>
+                    <p>法定节假日、带薪年假、病假等完善的休假制度</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎉</div>
+                    <h3>丰富的员工活动</h3>
+                    <p>团队建设、节日活动、年度旅游等丰富多彩的员工活动</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🍱</div>
+                    <h3>餐饮补贴</h3>
+                    <p>提供餐饮补贴、下午茶、零食饮料等贴心福利</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 申请流程部分 -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>申请流程</h2>
+                <p>简单高效的招聘流程，让您快速加入金隆大家庭</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>提交申请</h4>
+                    <p>在线提交简历和申请材料</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>简历筛选</h4>
+                    <p>HR将在3个工作日内完成简历筛选</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>初试面试</h4>
+                    <p>与部门负责人进行初次面试</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>复试面试</h4>
+                    <p>与HR及高层管理者进行复试</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>录用通知</h4>
+                    <p>发放录用通知书，办理入职手续</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>广州金隆文化传媒服务有限公司是一家专业的文化传媒服务机构，致力于为客户提供全方位的品牌策划、影视制作、新媒体运营等服务。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="news.html">公司动态</a></li>
+                        <li><a href="services.html">主营业务</a></li>
+                        <li><a href="culture.html">企业文化</a></li>
+                        <li><a href="careers.html">招贤纳仕</a></li>
+                        <li><a href="about.html">关于金隆</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li>📍 广州市从化区街口街建设路220号</li>
+                        <li>📞 13710455841</li>
+                        <li>✉️ lijingbo@jinlong.email</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 广州金隆文化传媒服务有限公司 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn" class="beian" target="_blank">粤ICP备2025482591号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // 当前页面高亮
+        document.querySelectorAll('nav a').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 移动端点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // 职位筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 这里可以添加筛选逻辑
+                // 根据按钮文本筛选对应的职位
+            });
+        });
+        
+        // 申请按钮点击事件
+        document.querySelectorAll('.apply-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const jobTitle = this.closest('.job-card').querySelector('.job-title').textContent;
+                alert(`感谢您申请${jobTitle}职位！我们将尽快与您联系。`);
+                // 这里可以添加实际的申请逻辑，如表单提交等
+            });
+        });
+        
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobCards = document.querySelectorAll('.job-card');
+            const benefitCards = document.querySelectorAll('.benefit-card');
+            const processSteps = document.querySelectorAll('.process-step');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // 职位卡片动画
+            jobCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 福利卡片动画
+            benefitCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 流程步骤动画
+            processSteps.forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(step);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司动态 - 广州金隆文化传媒服务有限公司</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a5fb4;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a5fb4;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a5fb4;
+        }
+        
+        nav ul li a.active {
+            color: #1a5fb4;
+            border-bottom: 2px solid #1a5fb4;
+        }
+        
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 公司动态横幅区域 */
+        .news-banner {
+            height: 400px;
+            background: linear-gradient(rgba(26, 95, 180, 0.8), rgba(26, 95, 180, 0.6)), url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .news-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .news-banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #1a5fb4;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1a5fb4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 公司动态内容区域 */
+        .news-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #1a5fb4;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 动态筛选 */
+        .news-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #1a5fb4;
+            color: white;
+            border-color: #1a5fb4;
+        }
+        
+        /* 动态网格布局 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .news-img {
+            height: 200px;
+            background-color: #e9ecef;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: rgba(26, 95, 180, 0.1);
+            color: #1a5fb4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .news-date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .news-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: #1a5fb4;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover::after {
+            transform: translateX(3px);
+        }
+        
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .page-btn:hover, .page-btn.active {
+            background-color: #1a5fb4;
+            color: white;
+            border-color: #1a5fb4;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1f36;
+            color: #a0aec0;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #1a5fb4;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: #1a5fb4;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 14px;
+        }
+        
+        .beian {
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+        
+        .beian:hover {
+            color: white;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+            
+            .news-banner h2 {
+                font-size: 32px;
+            }
+            
+            .news-banner p {
+                font-size: 16px;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">金</div>
+                <h1>金隆文化传媒</h1>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="news.html" class="active">公司动态</a></li>
+                    <li><a href="services.html">主营业务</a></li>
+                    <li><a href="culture.html">企业文化</a></li>
+                    <li><a href="careers.html">招贤纳仕</a></li>
+                    <li><a href="about.html">关于金隆</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 公司动态横幅区域 -->
+    <section class="news-banner">
+        <div class="news-banner-content">
+            <h2>公司动态</h2>
+            <p>了解金隆文化传媒的最新动态与行业资讯，掌握企业发展脉搏</p>
+            <a href="#news-content" class="btn">查看动态</a>
+        </div>
+    </section>
+
+    <!-- 公司动态内容 -->
+    <section class="news-section" id="news-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>最新动态</h2>
+                <p>关注金隆文化传媒的最新发展，了解行业前沿资讯</p>
+            </div>
+            
+            <!-- 动态筛选 -->
+            <div class="news-filter">
+                <button class="filter-btn active">全部动态</button>
+                <button class="filter-btn">公司新闻</button>
+                <button class="filter-btn">行业资讯</button>
+                <button class="filter-btn">活动预告</button>
+                <button class="filter-btn">媒体报道</button>
+            </div>
+            
+            <!-- 动态列表 -->
+            <div class="news-grid">
+                <!-- 动态1 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">
+                        <span class="news-category">公司新闻</span>
+                        <div class="news-date">2024年10月15日</div>
+                        <h3>金隆传媒与多家知名品牌达成战略合作</h3>
+                        <p>近日，广州金隆文化传媒服务有限公司与多家知名品牌达成战略合作，共同探索文化传媒领域的新机遇，为客户提供更全面的品牌服务。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+                
+                <!-- 动态2 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">
+                        <span class="news-category">活动预告</span>
+                        <div class="news-date">2024年9月28日</div>
+                        <h3>金隆传媒成功举办2024年度品牌盛典</h3>
+                        <p>2023年度品牌盛典圆满落幕，活动汇聚了行业精英，共同探讨文化传媒行业发展趋势，分享最新行业洞察。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+                
+                <!-- 动态3 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">
+                        <span class="news-category">媒体报道</span>
+                        <div class="news-date">2024年8月12日</div>
+                        <h3>金隆传媒荣获"年度创新传媒机构"奖项</h3>
+                        <p>在2024年度传媒行业评选中，金隆传媒凭借创新服务模式荣获"年度创新传媒机构"奖项，彰显了公司在行业内的领先地位。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+                
+                <!-- 动态4 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">
+                        <span class="news-category">行业资讯</span>
+                        <div class="news-date">2024年8月1日</div>
+                        <h3>金隆传媒参加2024国际传媒博览会</h3>
+                        <p>公司代表参加2024国际传媒博览会，与全球行业专家交流最新趋势，展示了公司在数字媒体领域的创新成果。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+                
+                <!-- 动态5 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">
+                        <span class="news-category">行业资讯</span>
+                        <div class="news-date">2024年1月25日</div>
+                        <h3>金隆传媒发布2023年下半年业绩报告</h3>
+                        <p>公司发布2023年下半年业绩报告，各项业务指标均实现稳健增长，展现了公司在文化传媒领域的强劲发展势头。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+
+                <!-- 动态6 -->
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="news-content">                        
+                        <span class="news-category">公司新闻</span>
+                        <div class="news-date">2023年6月18日</div>
+                        <h3>金隆传媒新办公室正式启用</h3>
+                        <p>为适应业务快速发展，金隆传媒新办公室正式启用，新址位于广州市中心商务区，将为员工提供更优越的工作环境。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>              
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="page-btn active">1</div>
+                <div class="page-btn">2</div>
+                <div class="page-btn">3</div>
+                <div class="page-btn">...</div>
+                <div class="page-btn">></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>广州金隆文化传媒服务有限公司是一家专业的文化传媒服务机构，致力于为客户提供全方位的品牌策划、影视制作、新媒体运营等服务。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="news.html">公司动态</a></li>
+                        <li><a href="services.html">主营业务</a></li>
+                        <li><a href="culture.html">企业文化</a></li>
+                        <li><a href="careers.html">招贤纳仕</a></li>
+                        <li><a href="about.html">关于金隆</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li>📍 广州市从化区街口街建设路220号</li>
+                        <li>📞 13710455841</li>
+                        <li>✉️ lijingbo@jinlong.email</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 广州金隆文化传媒服务有限公司 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn" class="beian" target="_blank">粤ICP备2025482591号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // 当前页面高亮
+        document.querySelectorAll('nav a').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 移动端点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // 动态筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 这里可以添加筛选逻辑
+                // 根据按钮文本筛选对应的动态内容
+            });
+        });
+        
+        // 分页功能
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.textContent !== '...') {
+                    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 这里可以添加分页逻辑
+                    // 根据点击的页码加载对应的动态内容
+                }
+            });
+        });
+        
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            newsCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

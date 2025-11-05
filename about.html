@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于金隆 - 广州金隆文化传媒服务有限公司</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a5fb4;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a5fb4;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a5fb4;
+        }
+        
+        nav ul li a.active {
+            color: #1a5fb4;
+            border-bottom: 2px solid #1a5fb4;
+        }
+        
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 关于我们横幅区域 */
+        .about-banner {
+            height: 400px;
+            background: linear-gradient(rgba(26, 95, 180, 0.8), rgba(26, 95, 180, 0.6)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .about-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .about-banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #1a5fb4;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1a5fb4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 关于我们内容区域 */
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #1a5fb4;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 公司介绍 */
+        .company-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .intro-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .intro-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .intro-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* 发展历程 */
+        .history-section {
+            background-color: #f1f5f9;
+            padding: 80px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #1a5fb4;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 30px;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #1a5fb4;
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+        }
+        
+        .timeline-year {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a5fb4;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .timeline-content p {
+            color: #666;
+        }
+        
+        /* 团队介绍 */
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            height: 200px;
+            background-color: #e9ecef;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .team-content {
+            padding: 25px 20px;
+        }
+        
+        .team-content h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .team-position {
+            color: #1a5fb4;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .team-content p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 荣誉资质 */
+        .honors-section {
+            background-color: #f1f5f9;
+            padding: 80px 0;
+        }
+        
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .honor-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .honor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .honor-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(26, 95, 180, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5fb4;
+            font-size: 30px;
+        }
+        
+        .honor-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .honor-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 联系我们部分 */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(26, 95, 180, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5fb4;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a5fb4 0%, #6c8ef5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .map-placeholder p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .map-btn {
+            display: inline-block;
+            background-color: white;
+            color: #1a5fb4;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .map-btn:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1f36;
+            color: #a0aec0;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #1a5fb4;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: #1a5fb4;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 14px;
+        }
+        
+        .beian {
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+        
+        .beian:hover {
+            color: white;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+            
+            .about-banner h2 {
+                font-size: 32px;
+            }
+            
+            .about-banner p {
+                font-size: 16px;
+            }
+            
+            .company-intro {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-content {
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">金</div>
+                <h1>金隆文化传媒</h1>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="news.html">公司动态</a></li>
+                    <li><a href="services.html">主营业务</a></li>
+                    <li><a href="culture.html">企业文化</a></li>
+                    <li><a href="careers.html">招贤纳仕</a></li>
+                    <li><a href="about.html" class="active">关于金隆</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 关于我们横幅区域 -->
+    <section class="about-banner">
+        <div class="about-banner-content">
+            <h2>关于金隆</h2>
+            <p>专业文化传媒服务，助力企业品牌成长与价值提升</p>
+            <a href="#about-content" class="btn">了解更多</a>
+        </div>
+    </section>
+
+    <!-- 公司介绍 -->
+    <section class="about-section" id="about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司介绍</h2>
+                <p>广州金隆文化传媒服务有限公司，致力于为客户提供全方位的文化传媒解决方案</p>
+            </div>
+            
+            <div class="company-intro">
+                <div class="intro-content">
+                    <h3>专业文化传媒服务机构</h3>
+                    <p>广州金隆文化传媒服务有限公司成立于2023年，是一家专业的文化传媒服务机构。公司总部位于广州市从化区，致力于为客户提供全方位的品牌策划、影视制作、新媒体运营等服务。</p>
+                    <p>自创立以来，金隆传媒奉行"专业、创新、诚信、执着、实干"的核心价值观，坚持"细节决定成败"的服务理念，为众多企业提供了优质的文化传媒服务。</p>
+                    <p>我们拥有一支经验丰富、富有创意的专业团队，能够根据客户需求提供定制化的解决方案，助力企业在激烈的市场竞争中脱颖而出。</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="金隆文化传媒">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展历程 -->
+    <section class="history-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>发展历程</h2>
+                <p>回顾金隆文化传媒的发展足迹，见证我们的成长与进步</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023年6月</div>
+                        <h4>公司成立</h4>
+                        <p>广州金隆文化传媒服务有限公司正式成立，开启专业文化传媒服务新征程</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023年8月</div>
+                        <h4>团队组建完成</h4>
+                        <p>组建完成专业服务团队，涵盖品牌策划、影视制作、新媒体运营等领域</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023年10月</div>
+                        <h4>首单业务达成</h4>
+                        <p>与首家客户达成合作，成功完成品牌策划项目，获得客户高度认可</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023年12月</div>
+                        <h4>业务拓展</h4>
+                        <p>业务范围扩展至外卖运营领域，为餐饮企业提供全方位运营解决方案</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024年1月</div>
+                        <h4>战略合作</h4>
+                        <p>与多家知名品牌达成战略合作，共同探索文化传媒领域新机遇</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍 -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心团队</h2>
+                <p>专业、创新、富有激情的团队是金隆传媒最宝贵的财富</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('');"></div>
+                    <div class="team-content">
+                        <h4>钟经理</h4>
+                        <div class="team-position">总经理</div>
+                        <p>拥有10年以上文化传媒行业经验，擅长品牌战略规划与资源整合</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('');"></div>
+                    <div class="team-content">
+                        <h4>沈总监</h4>
+                        <div class="team-position">创意总监</div>
+                        <p>资深创意策划专家，曾服务于多个知名品牌，作品屡获行业奖项</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('');"></div>
+                    <div class="team-content">
+                        <h4>黎主管</h4>
+                        <div class="team-position">运营总监</div>
+                        <p>新媒体运营专家，精通各平台运营策略，擅长数据驱动决策</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('');"></div>
+                    <div class="team-content">
+                        <h4>冯经理</h4>
+                        <div class="team-position">技术总监</div>
+                        <p>影视制作技术专家，精通各类拍摄设备和后期制作软件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 荣誉资质 -->
+    <section class="honors-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>荣誉资质</h2>
+                <p>金隆传媒凭借专业服务赢得客户信赖与行业认可</p>
+            </div>
+            
+            <div class="honors-grid">
+                <div class="honor-card">
+                    <div class="honor-icon">🏆</div>
+                    <h4>诚信企业</h4>
+                    <p>2023年度广州市诚信企业称号</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">⭐</div>
+                    <h4>创新机构</h4>
+                    <p>2023年度创新传媒机构奖项</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">📜</div>
+                    <h4>资质认证</h4>
+                    <p>文化传媒行业专业资质认证</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">🤝</div>
+                    <h4>战略合作</h4>
+                    <p>与多家知名品牌达成战略合作</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>欢迎随时与我们联系，我们将竭诚为您服务</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>联系方式</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>公司地址</h4>
+                                <p>广州市从化区街口街建设路220号</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>联系电话</h4>
+                                <p>13710455841</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>电子邮箱</h4>
+                                <p>lijingbo@jinlong.email</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-text">
+                                <h4>工作时间</h4>
+                                <p>周一至周五 9:00-18:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <h4>公司位置</h4>
+                        <p>广州市从化区街口街建设路220号</p>
+                        <a href="https://map.baidu.com/search/广州市从化区街口街建设路220号" class="map-btn" target="_blank">查看地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>广州金隆文化传媒服务有限公司是一家专业的文化传媒服务机构，致力于为客户提供全方位的品牌策划、影视制作、新媒体运营等服务。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="news.html">公司动态</a></li>
+                        <li><a href="services.html">主营业务</a></li>
+                        <li><a href="culture.html">企业文化</a></li>
+                        <li><a href="careers.html">招贤纳仕</a></li>
+                        <li><a href="about.html">关于金隆</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li>📍 广州市从化区街口街建设路220号</li>
+                        <li>📞 13710455841</li>
+                        <li>✉️ lijingbo@jinlong.email</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 广州金隆文化传媒服务有限公司 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn" class="beian" target="_blank">粤ICP备2025482591号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // 当前页面高亮
+        document.querySelectorAll('nav a').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 移动端点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const introContent = document.querySelector('.intro-content');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const teamCards = document.querySelectorAll('.team-card');
+            const honorCards = document.querySelectorAll('.honor-card');
+            const contactItems = document.querySelectorAll('.contact-details li');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // 公司介绍内容动画
+            if (introContent) {
+                introContent.style.opacity = '0';
+                introContent.style.transform = 'translateY(20px)';
+                introContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(introContent);
+            }
+            
+            // 时间线项目动画
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // 团队卡片动画
+            teamCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 荣誉卡片动画
+            honorCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 联系信息动画
+            contactItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

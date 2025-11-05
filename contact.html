@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 广州金隆文化传媒服务有限公司</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a5fb4;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a5fb4;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a5fb4;
+        }
+        
+        nav ul li a.active {
+            color: #1a5fb4;
+            border-bottom: 2px solid #1a5fb4;
+        }
+        
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 联系我们横幅区域 */
+        .contact-banner {
+            height: 400px;
+            background: linear-gradient(rgba(26, 95, 180, 0.8), rgba(26, 95, 180, 0.6)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #1a5fb4;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1a5fb4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 联系我们内容区域 */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #1a5fb4;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 联系信息与表单布局 */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        /* 联系信息样式 */
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(26, 95, 180, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5fb4;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        /* 微信二维码区域 */
+        .wechat-section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .wechat-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .qrcode-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .wechat-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 联系表单样式 */
+        .contact-form {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #1a5fb4;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #1a5fb4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0d4a9c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 地图区域 */
+        .map-section {
+            margin-top: 80px;
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a5fb4 0%, #6c8ef5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .map-placeholder p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .map-btn {
+            display: inline-block;
+            background-color: white;
+            color: #1a5fb4;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .map-btn:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1f36;
+            color: #a0aec0;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #1a5fb4;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 14px;
+        }
+        
+        .beian {
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+        
+        .beian:hover {
+            color: white;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+            
+            .contact-banner h2 {
+                font-size: 32px;
+            }
+            
+            .contact-banner p {
+                font-size: 16px;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">金</div>
+                <h1>金隆文化传媒</h1>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="news.html">公司动态</a></li>
+                    <li><a href="services.html">主营业务</a></li>
+                    <li><a href="culture.html">企业文化</a></li>
+                    <li><a href="careers.html">招贤纳仕</a></li>
+                    <li><a href="about.html">关于金隆</a></li>
+                    <li><a href="contact.html" class="active">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 联系我们横幅区域 -->
+    <section class="contact-banner">
+        <div class="contact-banner-content">
+            <h2>联系我们</h2>
+            <p>专业团队随时为您服务，期待与您合作共创美好未来</p>
+            <a href="#contact-content" class="btn">立即联系</a>
+        </div>
+    </section>
+
+    <!-- 联系我们内容 -->
+    <section class="contact-section" id="contact-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>多种联系方式，便捷沟通渠道，我们随时准备为您服务</p>
+            </div>
+            
+            <div class="contact-content">
+                <!-- 联系信息 -->
+                <div class="contact-info">
+                    <h3>联系信息</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>公司地址</h4>
+                                <p>广州市从化区街口街建设路220号</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>联系电话</h4>
+                                <p>13710455841</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>电子邮箱</h4>
+                                <p>lijingbo@jinlong.email</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-text">
+                                <h4>工作时间</h4>
+                                <p>周一至周五 9:00-18:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- 微信二维码 -->
+                    <div class="wechat-section">
+                        <h4>微信联系</h4>
+                        <div class="qrcode-container">
+                            <div>微信二维码</div>
+                        </div>
+                        <p>扫描二维码添加微信<br>获取更多专业咨询</p>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="contact-form">
+                    <h3>在线留言</h3>
+                    <p style="color: #666; margin-bottom: 20px;">请填写您的联系信息，我们将在24小时内与您联系</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">您的姓名 *</label>
+                            <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">联系电话 *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="请输入您的联系电话" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" class="form-control" placeholder="请输入您的电子邮箱">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" class="form-control" placeholder="请输入您的公司名称">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">感兴趣的服务</label>
+                            <select id="service" class="form-control">
+                                <option value="">请选择您感兴趣的服务</option>
+                                <option value="brand">品牌策划与推广</option>
+                                <option value="video">影视制作与发行</option>
+                                <option value="media">新媒体运营</option>
+                                <option value="event">活动策划与执行</option>
+                                <option value="digital">数字营销解决方案</option>
+                                <option value="design">创意设计与制作</option>
+                                <option value="takeaway">外卖运营</option>
+                                <option value="other">其他服务</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">留言内容 *</label>
+                            <textarea id="message" class="form-control" placeholder="请简要描述您的需求或问题" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">提交信息</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- 地图区域 -->
+            <div class="map-section">
+                <div class="section-title">
+                    <h2>公司位置</h2>
+                    <p>欢迎莅临公司参观指导，我们期待您的到来</p>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <h4>公司位置</h4>
+                        <p>广州市从化区街口街建设路220号</p>
+                        <a href="https://map.baidu.com/search/广州市从化区街口街建设路220号" class="map-btn" target="_blank">查看地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>广州金隆文化传媒服务有限公司是一家专业的文化传媒服务机构，致力于为客户提供全方位的品牌策划、影视制作、新媒体运营等服务。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="news.html">公司动态</a></li>
+                        <li><a href="services.html">主营业务</a></li>
+                        <li><a href="culture.html">企业文化</a></li>
+                        <li><a href="careers.html">招贤纳仕</a></li>
+                        <li><a href="about.html">关于金隆</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li>📍 广州市从化区街口街建设路220号</li>
+                        <li>📞 13710455841</li>
+                        <li>✉️ lijingbo@jinlong.email</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 广州金隆文化传媒服务有限公司 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn" class="beian" target="_blank">粤ICP备2025482591号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // 当前页面高亮
+        document.querySelectorAll('nav a').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            }
+            
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 移动端点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // 联系表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 简单验证
+            if (!formData.name || !formData.phone || !formData.message) {
+                alert('请填写必填字段（姓名、电话、留言内容）');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('感谢您的留言！我们将在24小时内与您联系。');
+            
+            // 重置表单
+            this.reset();
+        });
+        
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactItems = document.querySelectorAll('.contact-details li');
+            const wechatSection = document.querySelector('.wechat-section');
+            const contactForm = document.querySelector('.contact-form');
+            const mapSection = document.querySelector('.map-section');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // 联系信息动画
+            contactItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // 微信区域动画
+            if (wechatSection) {
+                wechatSection.style.opacity = '0';
+                wechatSection.style.transform = 'translateY(20px)';
+                wechatSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(wechatSection);
+            }
+            
+            // 联系表单动画
+            if (contactForm) {
+                contactForm.style.opacity = '0';
+                contactForm.style.transform = 'translateY(20px)';
+                contactForm.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(contactForm);
+            }
+            
+            // 地图区域动画
+            if (mapSection) {
+                mapSection.style.opacity = '0';
+                mapSection.style.transform = 'translateY(20px)';
+                mapSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(mapSection);
+            }
+        });
+    </script>
+</body>
+</html>
